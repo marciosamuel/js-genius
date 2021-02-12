@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-link to="/ranking" class="ranking">
+      <img src="../assets/img/ranking.svg" alt="Ranking" />
+    </router-link>
+    <img
+      src="../assets/img/logo.svg"
+      alt="logotipo do genius"
+      class="logo"
+    />
+    <router-link to="/jogo">
+      <ButtonSubmit name="Iniciar Jogo"/>
+    </router-link>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import ButtonSubmit from '../components/ButtonSubmit.vue';
 
 export default {
-  name: 'Home',
   components: {
-    HelloWorld,
+    ButtonSubmit,
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ranking {
+  align-self: flex-end;
+  img {
+    height: 4.8vh;
+  }
+}
+
+.logo {
+  height: 6.3vh;
+}
+
+</style>
