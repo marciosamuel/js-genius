@@ -8,7 +8,7 @@
       alt="logotipo do genius"
       class="logo"
     />
-    <router-link to="/jogo">
+    <router-link to="/game">
       <ButtonSubmit name="Iniciar Jogo"/>
     </router-link>
   </div>
