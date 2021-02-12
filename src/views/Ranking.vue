@@ -98,7 +98,7 @@ export default {
       text-align: right;
       &:nth-child(2) {
         padding-left: 10%;
-        width: 79%;
+        width: 75%;
         text-align: left;
       }
     }
