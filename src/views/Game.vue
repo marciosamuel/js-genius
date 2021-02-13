@@ -49,7 +49,6 @@ export default {
     },
     validateNumber(n) {
       if (n === this.actualNumber.value) {
-        this.userScore += 1;
         this.changeActualNumber();
       } else {
         this.gameOver();
@@ -59,6 +58,7 @@ export default {
       const actualIndex = this.actualNumber.index;
       if (actualIndex === (this.numberList.length - 1)) {
         this.startGame();
+        this.userScore += 1;
       } else {
         this.actualNumber = { index: actualIndex + 1, value: this.numberList[actualIndex + 1] };
       }
@@ -69,7 +69,7 @@ export default {
       this.showNumbers();
     },
     gameOver() {
-      this.$router.push('game-over');
+      this.$router.push({ name: 'Game Over', params: { score: this.userScore } });
     },
   },
   mounted() {
