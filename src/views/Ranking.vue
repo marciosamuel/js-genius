@@ -2,7 +2,7 @@
   <div class="score">
     <header class="cabecalho">
       <router-link to="/" class="seta"
-        ><img src="../assets/img/arrow-left.svg" alt="voltar"
+        ><img src="../assets/img/voltar.svg" alt="voltar"
       /></router-link>
       <h1>Ranking</h1>
     </header>
@@ -34,8 +34,25 @@ export default {
         .get('https://us-central1-prova-front-letras.cloudfunctions.net/ranking')
         .then((response) => {
           this.rankingList = response.data;
+          this.rankingList.sort(this.sortRanking('score', 'name'));
           this.loading = false;
         });
+    },
+    sortRanking(firstKey, secondKey) {
+      return (a, b) => {
+        if (a[firstKey] > b[firstKey]) {
+          return -1;
+        } if (a[firstKey] < b[firstKey]) {
+          return 1;
+        }
+
+        if (a[secondKey] > b[secondKey]) {
+          return 1;
+        } if (a[secondKey] < b[secondKey]) {
+          return -1;
+        }
+        return 0;
+      };
     },
   },
   mounted() {
